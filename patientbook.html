@@ -5,6 +5,8 @@
 
 <body>
   <div class="header">
+    <div>{{> menu}}
+    </div>
     <div class="container">
       <h2>Patientbook</h2>
       {{> navbar}}
@@ -14,6 +16,22 @@
     {{> patientbook}}
   </div>
 </body>
+<template name="menu">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Patient Booking Tracking</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        {{> loginButtons}}
+      </ul>
+    </div>
+  </nav>
+</template>
+<template name="_loginButtonsAdditionalLoggedInDropdownActions">
+  <button class="btn btn-default btn-block" id="login-buttons-edit-profile">Edit profile</button>
+</template>
 
 <template name="navbar">
   <form class="form-inline">
@@ -53,8 +71,8 @@
   <tr class="patient {{#if selected}}info{{/if}}">
     <td class="name">{{name}}</td>
     <td class="priority"><span class="badge {{#if is_max}}badge-success{{/if}} {{#if is_min}}badge-warning{{/if}}">{{priority}}</span></td>
-    <td><i class="increment icon-thumbs-up" rel="tooltip" data-original-title="Increase priority to the patient"></i></td>
-    <td><i class="decrement icon-thumbs-down" rel="tooltip" data-original-title="Decrease priority to the patient"></i></td>
-    <td><i class="remove icon-remove" rel="tooltip" data-original-title="Delete patient"></i></td>
+    <td><i class="increment glyphicon glyphicon-thumbs-up" rel="tooltip" data-original-title="Increase priority to the patient"></i></td>
+    <td><i class="decrement glyphicon glyphicon-thumbs-down" rel="tooltip" data-original-title="Decrease priority to the patient"></i></td>
+    <td><i class="remove glyphicon glyphicon-remove" rel="tooltip" data-original-title="Delete patient"></i></td>
   </tr>
 </template>
